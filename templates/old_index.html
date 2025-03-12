@@ -1,0 +1,24 @@
+<html>
+	<h1>Sudoku Solver</h1>
+	<form method="POST" action="{{url_for('solve')}}">
+		<label for="puzzle">Unsolved puzzle (use 0 for empty):</label><br>
+		<textarea id="puzzle" name="puzzle" rows="10" cols="20"></textarea><br>
+		<input type="submit" value="Solve">
+	</form>
+
+	<button onclick="setPreset1()">Preset puzzle 1</button>
+	<button onclick="setPreset2()">Preset puzzle 2</button>
+	<button onclick="setPreset3()">Preset puzzle 3</button>
+
+	<script>
+		function setPreset1() {
+			document.getElementById("puzzle").value = `{{PRESET_PUZZLE_1}}`;
+		}
+		function setPreset2() {
+			document.getElementById("puzzle").value = `{{PRESET_PUZZLE_2}}`;
+		}
+		function setPreset3() {
+			document.getElementById("puzzle").value = `{{PRESET_PUZZLE_3}}`;
+		}
+	</script>
+</html>

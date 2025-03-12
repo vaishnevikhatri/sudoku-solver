@@ -1,0 +1,17 @@
+<html>
+	<h1>Solver results</h1>
+	<h2>Regular algorithm</h2>
+	<p>Time taken: {{ regularResults['time'] | round(4) }}s</p>
+	<p>Number of states searched: {{ regularResults['states'] }}</p>
+	<p>Able to solve: {{ regularResults['ableToSolve'] }}</p>
+	<p>Solution:</p>
+	<tt> {{ regularResults['solvedPuzzle'] | safe }} </tt>
+	<h2>MRV algorithm</h2>
+	<p>Time taken: {{ mrvResults['time'] | round(4) }}s (Speedup: {{ (regularResults['time'] / mrvResults['time']) | round(2) }}x)</p>
+	<p>Number of states searched: {{ mrvResults['states'] }} {% if mrvResults['states'] != 0 %}(Reduction: {{ (regularResults['states'] / mrvResults['states']) | round(2) }}x){% endif %}</p>
+	<p>Able to solve: {{ mrvResults['ableToSolve'] }}</p>
+	<p>Solution:</p>
+	<tt> {{ mrvResults['solvedPuzzle'] | safe }} </tt>
+	<br>
+	<a href="{{ url_for('index') }}">Back to home</a>
+</html>
